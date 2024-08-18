@@ -1,12 +1,14 @@
-{% extends "accounts/layout.html" %}
+{% extends "home/layout.html" %}
 {% block title %} | Login{% endblock %}
+{% block heading %}Enter your login details{% endblock %}
+
 
 {% block body %}
 <div class="container">
     <div class="row">
         <div class="col-md-4 mx-auto mt-5">
             <h2>Login</h2>
-            <form action="{% url 'login' %}" method="post" class="mt-3">
+            <form action="{% url 'accounts:login' %}" method="post" class="mt-3">
                 {% csrf_token %}
                 <div class="form-group input-field">
                     <input autofocus class="form-control {% if validation_error %}is-invalid{% endif %}" type="text" name="username" id="username">
@@ -19,9 +21,9 @@
                     <input class="form-control {% if validation_error %}is-invalid{% endif %}" type="password" name="password" id="password">
                     <label for="password">Password</label>
                 </div>
-                <input class="btn btn-primary" type="submit" value="Login">
+                <input class="btn btn-primary btn-full" type="submit" value="Login">
             </form>
-            Don't have an account? <a href="{% url 'register' %}" style="color:#40E0D0;">Register here.</a>
+            Don't have an account? <a href="{% url 'accounts:register' %}" style="color:#40E0D0;">Register here.</a>
         </div>
     </div>
 </div>

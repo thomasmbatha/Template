@@ -22,7 +22,7 @@
         <nav id="navbar" class="navbar {% if not user.is_authenticated %}centered-navbar{% endif %}">
             <ul class="d-flex {% if not user.is_authenticated %}justify-content-center{% endif %}">
                 {% if user.is_authenticated %}
-                    <li><a class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">Home</a></li>
+                    <li><a class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home:home' %}">Home</a></li>
                 {% endif %}
             </ul>
         </nav>

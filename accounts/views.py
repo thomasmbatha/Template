@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.db import IntegrityError
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.template.loader import get_template, TemplateDoesNotExist
 from .models import User
 
 
@@ -12,6 +13,11 @@ from .models import User
 # View to handle user login
 def login_view(request):
     validation_error = None
+    try:
+        get_template('accounts/login.html')
+    except TemplateDoesNotExist as e:
+        print(f"Template not found: {e}")
+    
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -19,7 +25,7 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+            return HttpResponseRedirect(reverse("home:home"))
         else:
             validation_error = "Invalid username and/or password."
     
@@ -32,7 +38,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.success(request, "Logged out successfully.")
-    return HttpResponseRedirect(reverse("index"))
+    return HttpResponseRedirect(reverse("home:home"))
 
 # View to handle user registration
 def register(request):
@@ -55,7 +61,7 @@ def register(request):
                 user.save()
                 login(request, user)
                 messages.success(request, "Registration successful.")
-                return HttpResponseRedirect(reverse("index"))
+                return HttpResponseRedirect(reverse("home:home"))
             except IntegrityError:
                 username_error = "Username already exists."
     

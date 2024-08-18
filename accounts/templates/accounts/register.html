@@ -1,12 +1,13 @@
-{% extends "accounts/layout.html" %}
+{% extends "home/layout.html" %}
 {% block title %} | Register{% endblock %}
+{% block heading %}Register your new account here{% endblock %}
 
 {% block body %}
 <div class="container">
     <div class="row">
         <div class="col-md-4 mx-auto mt-5">
             <h2 class="mb-3">Register</h2>
-            <form action="{% url 'register' %}" method="post">
+            <form action="{% url 'accounts:register' %}" method="post">
                 {% csrf_token %}
                 <div class="form-group input-field">
                     <input class="form-control bg-white {% if username_error %}is-invalid{% endif %}" id="username-input" autofocus type="text" name="username">
@@ -35,7 +36,7 @@
                 </div>
                 <input class="btn btn-primary btn-full" type="submit" value="Register">
             </form>
-            Already have an account? <a href="{% url 'login' %}" style="color:#40E0D0;">Log In here.</a>
+            Already have an account? <a href="{% url 'accounts:login' %}" style="color:#40E0D0;">Log In here.</a>
         </div>
     </div>
 </div>

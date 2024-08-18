@@ -98,40 +98,35 @@ input:-webkit-autofill:active {
 }
 .validation_error {
     color: red;
-    font-size: 12px;
+    font-size: 10px;
     position: absolute;
     top: 66%;
-    left: 44%;
-    margin-top: 2px;
-    width: 188px;
+    left: 3%;
+    margin-top: 3px;
+    width: 156px;
     background-color: white;
-    padding: 1px 1px;
 }
 
-.username_error {
-    color: red;
-    font-size: 12px;
-    position: absolute;
-    top: 66%;
-    left: 60%;
-    margin-top: 2px;
-    width: 133px;
-    background-color: white;
-    padding: 1px 1px;
-    
+.username_error{
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  top: 75%;
+  left: 3%;
+  margin-top: 2px;
+  width: 110px;
+  background-color: white;
 }
 
 .password_error {
     color: red;
-    font-size: 12px;
+    font-size: 10px;
     position: absolute;
-    top: 66%;
-    left: 60%;
+    top: 73%;
+    left: 3%;
     margin-top: 2px;
-    width: 133px;
+    width: 105px;
     background-color: white;
-    padding: 1px 1px;
-    
 }
 
 /*--------------------------------------------------------------
